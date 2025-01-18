@@ -1,12 +1,10 @@
-from fastapi import FastAPI, HTTPException, APIRouter
+from fastapi import HTTPException, APIRouter
 from models.users import ResponseModel
 
-
-router = APIRouter(prefix='/users', tags=['users'])
-
+router = APIRouter(prefix='/api', tags=['users'])
 
 
-@router.get("/api/users/{user_id}", response_model=ResponseModel)
+@router.get("/users/{user_id}", response_model=ResponseModel)
 async def get_user(user_id: int):
     # Mock data for demonstration purposes
     users = {
@@ -36,16 +34,9 @@ async def get_user(user_id: int):
 
 
 
-
-
-
-
-
-
-
-
-
-
+# if __name__ == "__main__":
+#     import uvicorn
+#     uvicorn.run(router, host="0.0.0.0", port=8000)
 
 
 # @app.get("/api/register/{email}/{password}")
