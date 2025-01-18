@@ -6,7 +6,6 @@ router = APIRouter(prefix='/api', tags=['users'])
 
 @router.get("/users/{user_id}", response_model=ResponseModel)
 async def get_user(user_id: int):
-    # Mock data for demonstration purposes
     users = {
         7: {
             "id": 7,
@@ -14,6 +13,13 @@ async def get_user(user_id: int):
             "first_name": "Michael",
             "last_name": "Lawson",
             "avatar": "https://reqres.in/img/faces/7-image.jpg",
+        },
+        8: {
+            "id": 8,
+            "email": "lindsay.ferguson@reqres.in",
+            "first_name": "Lindsay",
+            "last_name": "Ferguson",
+            "avatar": "https://reqres.in/img/faces/8-image.jpg"
         }
     }
 
@@ -24,8 +30,8 @@ async def get_user(user_id: int):
 
     user = users.get(user_id)
     if not user:
-        # todo improve exception
         raise HTTPException(status_code=404, detail="User not found")
+
 
     return {
         "data": user,
@@ -33,6 +39,13 @@ async def get_user(user_id: int):
     }
 
 
+# @router.get("/users/{user_id}", response_model=ResponseModel)
+# async def get_unknown_user(user_id: int):
+#     # Mock data for demonstration purposes
+#     users = [7, 8]
+#     if user_id not in users:
+#         raise HTTPException(status_code=404)
+#         return { }
 
 # if __name__ == "__main__":
 #     import uvicorn
