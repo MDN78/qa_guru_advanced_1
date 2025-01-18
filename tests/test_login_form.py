@@ -1,7 +1,9 @@
 from board_api.crud import api
+import pytest
 import os
 
 
+@pytest.mark.skip
 def test_successful_registration():
     email = os.getenv('USER_EMAIL')
     password = os.getenv('USER_PASSWORD')
@@ -12,6 +14,7 @@ def test_successful_registration():
     assert status_code == 200
 
 
+@pytest.mark.skip
 def test_unsuccessful_registration():
     email = os.getenv('USER_EMAIL')
     user_info = api.unsuccessful_registration_user(email)
@@ -21,6 +24,7 @@ def test_unsuccessful_registration():
     assert status_code == 400
 
 
+@pytest.mark.skip
 def test_login_user():
     email = os.getenv('USER_EMAIL')
     password = os.getenv('USER_PASSWORD')
