@@ -5,7 +5,7 @@ router = APIRouter(prefix='/api', tags=['users'])
 
 
 @router.get("/users/{user_id}", response_model=ResponseModel)
-async def get_user(user_id: int):
+async def get_user(user_id: int) -> ResponseModel:
     users = {
         7: {
             "id": 7,
@@ -32,31 +32,5 @@ async def get_user(user_id: int):
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
 
+    return ResponseModel(data=user, support=support_info)
 
-    return {
-        "data": user,
-        "support": support_info,
-    }
-
-
-# @router.get("/users/{user_id}", response_model=ResponseModel)
-# async def get_unknown_user(user_id: int):
-#     # Mock data for demonstration purposes
-#     users = [7, 8]
-#     if user_id not in users:
-#         raise HTTPException(status_code=404)
-#         return { }
-
-# if __name__ == "__main__":
-#     import uvicorn
-#     uvicorn.run(router, host="0.0.0.0", port=8000)
-
-
-# @app.get("/api/register/{email}/{password}")
-# async def get_registration_user(email: str, password: int) -> dict:
-#     return {"id": 4, "token": 'QpwL5tke4Pnpja7X4',}
-#
-#
-# @app.get("/")
-# async def get_users_list() -> dict:
-#     pass

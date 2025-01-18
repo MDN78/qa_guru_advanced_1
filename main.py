@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routers import login_form
+from routers import login_form, operation_with_user
 
 app = FastAPI()
 
@@ -10,3 +10,4 @@ async def welcome() -> dict:
 
 
 app.include_router(login_form.router)
+app.include_router(operation_with_user.router)

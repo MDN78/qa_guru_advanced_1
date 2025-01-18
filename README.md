@@ -16,7 +16,7 @@
 3. Запустить сервер Uvicorn локально  
 Команда запуска сервера Uvicorn  
 ```commandline
-uvicorn main:app --port 8000 --reload
+python -m uvicorn main:app --port 8000 --reload
 ```  
 *Uvicorn* использует адрес `http://127.0.0.1`. Для просмотра приложения перейти по адресу `http://127.0.0.1:8000`  
 Документация расположена по адресу `http://127.0.0.1:8000/docs` 
