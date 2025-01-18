@@ -19,4 +19,3 @@ async def create_user(name: str, job: str = 'QA') -> UserCreatedData:
 async def update_user(user_id: int, name: str, job: str) -> UserUpdatedData:
     date = now_data
     return UserUpdatedData(name=name, job=job, updatedAt=date)
-
