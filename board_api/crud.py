@@ -16,7 +16,7 @@ class ReqresApi:
             "name": name,
             "job": job
         }
-        resp = requests.post(f'{self.url}users', json=payload)
+        resp = requests.post(f'{self.url}users', params=payload)
         status_code = resp.status_code
         return [resp.json(), status_code]
 
@@ -25,7 +25,7 @@ class ReqresApi:
             "name": name,
             "job": job,
         }
-        resp = requests.put(f'{self.url}users/2', json=payload)
+        resp = requests.put(f'{self.url}users/2', params=payload)
         status_code = resp.status_code
         return [resp.json(), status_code]
 
