@@ -1,7 +1,7 @@
-from fastapi import HTTPException, APIRouter, status, Body, Response
-from models.users import UserCreatedData, UserUpdatedData
-import datetime
 import random
+import datetime
+from models.users import UserCreatedData, UserUpdatedData
+from fastapi import HTTPException, APIRouter, status, Body, Response
 
 router = APIRouter(prefix='/api', tags=['operation with users'])
 

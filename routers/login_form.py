@@ -1,5 +1,5 @@
-from fastapi import HTTPException, APIRouter
 from models.users import ResponseModel
+from fastapi import HTTPException, APIRouter
 
 router = APIRouter(prefix='/api', tags=['users'])
 
@@ -33,4 +33,3 @@ async def get_user(user_id: int) -> ResponseModel:
         raise HTTPException(status_code=404, detail="User not found")
 
     return ResponseModel(data=user, support=support_info)
-

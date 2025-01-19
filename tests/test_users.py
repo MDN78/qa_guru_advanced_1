@@ -1,5 +1,6 @@
-from board_api.crud import api
 import os
+from board_api.crud import api
+
 
 
 def test_get_single_user_info():
