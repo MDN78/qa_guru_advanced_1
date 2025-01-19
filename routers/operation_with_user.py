@@ -14,6 +14,12 @@ async def create_user(name: str, job: str = 'QA') -> UserCreatedData:
     date = now_data
     return UserCreatedData(name=name, job=job, id=new_id, createdAt=date)
 
+
+@router.put("/users/{user_id}", response_model=UserUpdatedData)
+async def update_user(user_id: int, name: str, job: str) -> UserUpdatedData:
+    date = now_data
+    return UserUpdatedData(name=name, job=job, updatedAt=date)
+
 # @router.post("/users", response_model=UserCreatedData, status_code=status.HTTP_201_CREATED)
 # async def create_user(user: UserCreatedData, name: str, job: str) -> UserCreatedData:
 #     new_id = random.randint(99, 150)
@@ -37,8 +43,3 @@ async def create_user(name: str, job: str = 'QA') -> UserCreatedData:
 #     )
 #
 #     return new_user
-
-@router.put("/users/{user_id}", response_model=UserUpdatedData)
-async def update_user(user_id: int, name: str, job: str) -> UserUpdatedData:
-    date = now_data
-    return UserUpdatedData(name=name, job=job, updatedAt=date)
