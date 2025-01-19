@@ -22,4 +22,4 @@ uvicorn main:app --port 8000 --reload
 Документация расположена по адресу `http://127.0.0.1:8000/docs` 
 
 Пример приложения Swagger:  
-![swagger reqres homemade]()  
+![swagger reqres homemade](assets/swagger.PNG)    
