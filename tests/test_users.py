@@ -13,8 +13,8 @@ def test_get_single_user_info():
 
 
 def test_login_user():
-    email = os.getenv('USER_EMAIL')
-    password = os.getenv('USER_PASSWORD')
+    email = os.getenv('EMAIL')
+    password = os.getenv('PASSWORD')
     login_user_info = api.login_user(email, password)
     status_code = login_user_info[1]
     user_token = login_user_info[0]
