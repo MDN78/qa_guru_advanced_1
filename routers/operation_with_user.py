@@ -26,5 +26,5 @@ async def update_user(user_id: int, name: str, job: str) -> UserUpdatedData:
 
 
 @router.delete("/users/{user_id}")
-def delete_user():
+async def delete_user():
     return Response(status_code=204)

@@ -37,7 +37,7 @@ async def get_user(user_id: int) -> ResponseModel:
 
 
 @router.post("/login")
-def login_user(user: User = Body()):
+async def login_user(user: User = Body()):
     users = 'eve.holt@reqres.in'
     password = 'cityslicka'
     if user.email != users and user.password != password:
