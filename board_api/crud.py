@@ -20,12 +20,12 @@ class ReqresApi:
         status_code = resp.status_code
         return [resp.json(), status_code]
 
-    def update_user_info(self, name: str, job: str) -> list:
+    def update_user_info(self, name: str, job: str, user_id=2) -> list:
         payload = {
             "name": name,
             "job": job,
         }
-        resp = requests.put(f'{self.url}users/2', params=payload)
+        resp = requests.put(f'{self.url}users/{user_id}', params=payload)
         status_code = resp.status_code
         return [resp.json(), status_code]
 
