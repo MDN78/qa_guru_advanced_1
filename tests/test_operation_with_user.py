@@ -14,7 +14,7 @@ def test_create_new_user():
 def test_update_user_info():
     name = os.getenv('NEW_USER_NAME')
     job = os.getenv('NEW_USER_JOB')
-    user_id=os.getenv('USER_ID')
+    user_id = os.getenv('USER_ID')
     new_user = api.update_user_info(name, job, user_id)
     status_code = new_user[1]
     assert status_code == 200
