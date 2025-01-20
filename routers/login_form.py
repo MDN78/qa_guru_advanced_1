@@ -1,5 +1,7 @@
+import os
 from models.users import ResponseModel
-from fastapi import HTTPException, APIRouter
+from fastapi import HTTPException, APIRouter, Body, Response
+from models.users import User
 
 router = APIRouter(prefix='/api', tags=['users'])
 
@@ -33,3 +35,19 @@ async def get_user(user_id: int) -> ResponseModel:
         raise HTTPException(status_code=404, detail="User not found")
 
     return ResponseModel(data=user, support=support_info)
+
+
+@router.post("/login")
+def login_user(user: User = Body()):
+    users = 'eve.holt@reqres.in'
+    password = 'cityslicka'
+    if user.email != users and user.password != password:
+        return Response(status_code=400, content='Wrong email or password')
+
+    elif user.email in users:
+        return {
+            "token": "QpwL5tke4Pnpja7X4"
+        }
+    else:
+        return Response(status_code=400, content='user not found')
+
