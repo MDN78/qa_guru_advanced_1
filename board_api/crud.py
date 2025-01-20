@@ -46,5 +46,4 @@ class ReqresApi:
         return [user_token, status_code]
 
 
-# api = ReqresApi("https://reqres.in/api/")
 api = ReqresApi("http://127.0.0.1:8000/api/")

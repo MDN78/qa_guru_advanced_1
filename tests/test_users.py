@@ -2,7 +2,6 @@ import os
 from board_api.crud import api
 
 
-
 def test_get_single_user_info():
     user_ids = os.getenv('USER_ID')
     response = api.get_single_user(user_ids)

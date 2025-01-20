@@ -1,7 +1,6 @@
-import os
+from models.users import User
 from models.users import ResponseModel
 from fastapi import HTTPException, APIRouter, Body, Response
-from models.users import User
 
 router = APIRouter(prefix='/api', tags=['users'])
 
@@ -44,10 +43,9 @@ def login_user(user: User = Body()):
     if user.email != users and user.password != password:
         return Response(status_code=400, content='Wrong email or password')
 
-    elif user.email in users:
+    elif user.email == users:
         return {
             "token": "QpwL5tke4Pnpja7X4"
         }
     else:
         return Response(status_code=400, content='user not found')
-

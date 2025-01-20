@@ -1,7 +1,7 @@
 import random
 import datetime
 from models.users import UserCreatedData, UserUpdatedData
-from fastapi import HTTPException, APIRouter, status, Body, Response
+from fastapi import APIRouter, status, Response
 
 router = APIRouter(prefix='/api', tags=['operation with users'])
 
@@ -17,8 +17,12 @@ async def create_user(name: str, job: str = 'QA') -> UserCreatedData:
 
 @router.put("/users/{user_id}", response_model=UserUpdatedData)
 async def update_user(user_id: int, name: str, job: str) -> UserUpdatedData:
+    users_id = [7, 8]
     date = now_data
-    return UserUpdatedData(name=name, job=job, updatedAt=date)
+    if user_id not in users_id:
+        return Response(status_code=400, content='Uncorrect user ID')
+    else:
+        return UserUpdatedData(name=name, job=job, updatedAt=date)
 
 
 @router.delete("/users/{user_id}")

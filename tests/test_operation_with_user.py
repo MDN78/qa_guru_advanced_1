@@ -1,5 +1,5 @@
-import os
 from board_api.crud import api
+import os
 
 
 def test_create_new_user():
