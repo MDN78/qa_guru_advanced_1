@@ -31,4 +31,6 @@ pytest
 - перейти по адресу `http://127.0.0.1:8000/docs`
 - произвести необходимые проверки  
 Пример приложения Swagger:  
-![swagger reqres homemade](assets/swagger.PNG)    
+![swagger reqres homemade](assets/swagger.PNG)
+
+add project to Mac
